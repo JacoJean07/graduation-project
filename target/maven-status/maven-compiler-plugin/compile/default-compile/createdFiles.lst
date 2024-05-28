@@ -1,0 +1,5 @@
+com\mycompany\interfaces\JakartaRestConfiguration.class
+connection\Conn.class
+model\Auth.class
+com\mycompany\interfaces\resources\JakartaEE10Resource.class
+controller\AuthController.class
