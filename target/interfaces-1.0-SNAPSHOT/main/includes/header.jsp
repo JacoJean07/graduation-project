@@ -64,13 +64,13 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link d-flex" href="productos">
+              <a class="nav-link d-flex" href="productos.jsp">
                 <i class="fab fa-product-hunt mr-2 fa-2x"></i>
                 <p> Productos</p>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link d-flex" href="clientes">
+              <a class="nav-link d-flex" href="clientes.jsp">
                 <i class=" fas fa-users mr-2 fa-2x"></i>
                 <p> Clientes</p>
               </a>
@@ -88,7 +88,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link d-flex" href="gastos">
+              <a class="nav-link d-flex" href="gastos.jsp">
                 <i class="fas fa-minus-square mr-2 fa-2x"></i>
                 <p> Gastos</p>
               </a>
@@ -122,7 +122,7 @@
                   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
                     <a class="dropdown-item" href="#">Perfil</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="salir">Cerrar Sesión</a>
+                    <a class="dropdown-item" href="/graduation-project/LogOut">Cerrar Sesión</a>
                   </div>
                 </li>
               </ul>

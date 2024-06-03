@@ -1,5 +1,6 @@
-com\mycompany\interfaces\JakartaRestConfiguration.class
 connection\Conn.class
 model\Auth.class
 com\mycompany\interfaces\resources\JakartaEE10Resource.class
+com\mycompany\interfaces\JakartaRestConfiguration.class
 controller\AuthController.class
+controller\LogOut.class

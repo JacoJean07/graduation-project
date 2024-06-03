@@ -1,18 +1,15 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package model;
 
-/**
- *
- * @author jeanc
- */
-
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import connection.Conn;
 
 public class Auth {
-    private String user = "jean";
-    private String password = "admin";
+
+    private String user;
+    private String password;
 
     public Auth(String user, String password) {
         this.user = user;
@@ -35,11 +32,25 @@ public class Auth {
         this.password = password;
     }
 
-    public boolean checkPassword(String password) {
-        return this.password.equals(password);
+    public boolean checkPassword(String password, String user) {
+        String sql = "SELECT password FROM usuarios WHERE user = ?";
+        try (Connection connection = Conn.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setString(1, user);
+            try (ResultSet resultSet = statement.executeQuery()) {
+                if (resultSet.next()) {
+                    String storedPassword = resultSet.getString("password");
+                    if (storedPassword.equals(password)) {
+
+                        return true;
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException("Error verifying user", e);
+        }
+
+        return false;
     }
 
-    public boolean checkUser(String user) {
-        return this.user.equals(user);
-    }
+
 }
