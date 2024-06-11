@@ -137,6 +137,150 @@
                                 </form>
                             </td>
                         </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>123456789</td>
+                            <td>Producto 3</td>
+                            <td>Tipo 3</td>
+                            <td>Presentacion 3</td>
+                            <td>30.00</td>
+                            <td>35.00</td>
+                            <td>20</td>
+                            <td>40</td>
+                            <td>200.00</td>
+                            <td>
+                                <a href="#" onclick="editarProducto(3)" class="btn btn-primary"><i class='fas fa-edit'></i></a>
+                                <form action="eliminar_producto.php?id=3" method="post" class="confirmar d-inline">
+                                    <button class="btn btn-danger" type="submit"><i class='fas fa-trash-alt'></i> </button>
+                                </form>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>987654321</td>
+                            <td>Producto 4</td>
+                            <td>Tipo 4</td>
+                            <td>Presentacion 4</td>
+                            <td>40.00</td>
+                            <td>45.00</td>
+                            <td>10</td>
+                            <td>30</td>
+                            <td>150.00</td>
+                            <td>
+                                <a href="#" onclick="editarProducto(4)" class="btn btn-primary"><i class='fas fa-edit'></i></a>
+                                <form action="eliminar_producto.php?id=4" method="post" class="confirmar d-inline">
+                                    <button class="btn btn-danger" type="submit"><i class='fas fa-trash-alt'></i> </button>
+                                </form>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>123456789</td>
+                            <td>Producto 5</td>
+                            <td>Tipo 5</td>
+                            <td>Presentacion 5</td>
+                            <td>50.00</td>
+                            <td>55.00</td>
+                            <td>5</td>
+                            <td>20</td>
+                            <td>100.00</td>
+                            <td>
+                                <a href="#" onclick="editarProducto(5)" class="btn btn-primary"><i class='fas fa-edit'></i></a>
+                                <form action="eliminar_producto.php?id=5" method="post" class="confirmar d-inline">
+                                    <button class="btn btn-danger" type="submit"><i class='fas fa-trash-alt'></i> </button>
+                                </form>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>987654321</td>
+                            <td>Producto 6</td>
+                            <td>Tipo 6</td>
+                            <td>Presentacion 6</td>
+                            <td>60.00</td>
+                            <td>65.00</td>
+                            <td>0</td>
+                            <td>10</td>
+                            <td>50.00</td>
+                            <td>
+                                <a href="#" onclick="editarProducto(6)" class="btn btn-primary"><i class='fas fa-edit'></i></a>
+                                <form action="eliminar_producto.php?id=6" method="post" class="confirmar d-inline">
+                                    <button class="btn btn-danger" type="submit"><i class='fas fa-trash-alt'></i> </button>
+                                </form>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>123456789</td>
+                            <td>Producto 7</td>
+                            <td>Tipo 7</td>
+                            <td>Presentacion 7</td>
+                            <td>70.00</td>
+                            <td>75.00</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0.00</td>
+                            <td>
+                                <a href="#" onclick="editarProducto(7)" class="btn btn-primary"><i class='fas fa-edit'></i></a>
+                                <form action="eliminar_producto.php?id=7" method="post" class="confirmar d-inline">
+                                    <button class="btn btn-danger" type="submit"><i class='fas fa-trash-alt'></i> </button>
+                                </form>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>987654321</td>
+                            <td>Producto 8</td>
+                            <td>Tipo 8</td>
+                            <td>Presentacion 8</td>
+                            <td>80.00</td>
+                            <td>85.00</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0.00</td>
+                            <td>
+                                <a href="#" onclick="editarProducto(8)" class="btn btn-primary"><i class='fas fa-edit'></i></a>
+                                <form action="eliminar_producto.php?id=8" method="post" class="confirmar d-inline">
+                                    <button class="btn btn-danger" type="submit"><i class='fas fa-trash-alt'></i> </button>
+                                </form>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>123456789</td>
+                            <td>Producto 9</td>
+                            <td>Tipo 9</td>
+                            <td>Presentacion 9</td>
+                            <td>90.00</td>
+                            <td>95.00</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0.00</td>
+                            <td>
+                                <a href="#" onclick="editarProducto(9)" class="btn btn-primary"><i class='fas fa-edit'></i></a>
+                                <form action="eliminar_producto.php?id=9" method="post" class="confirmar d-inline">
+                                    <button class="btn btn-danger" type="submit"><i class='fas fa-trash-alt'></i> </button>
+                                </form>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td>987654321</td>
+                            <td>Producto 10</td>
+                            <td>Tipo 10</td>
+                            <td>Presentacion 10</td>
+                            <td>100.00</td>
+                            <td>105.00</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0.00</td>
+                            <td>
+                                <a href="#" onclick="editarProducto(10)" class="btn btn-primary"><i class='fas fa-edit'></i></a>
+                                <form action="eliminar_producto.php?id=10" method="post" class="confirmar d-inline">
+                                    <button class="btn btn-danger" type="submit"><i class='fas fa-trash-alt'></i> </button>
+                                </form>
+                            </td>
+                        </tr>
                     </tbody>
 
                 </table>

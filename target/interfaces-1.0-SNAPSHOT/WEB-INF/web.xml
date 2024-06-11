@@ -8,6 +8,22 @@
         <servlet-name>LogOut</servlet-name>
         <servlet-class>controller.LogOut</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Register</servlet-name>
+        <servlet-class>controller.usuarios.RegisterController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RegisterC</servlet-name>
+        <servlet-class>controller.RegisterC</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Show</servlet-name>
+        <servlet-class>controller.usuarios.Show</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>VistasController</servlet-name>
+        <servlet-class>controller.VistasController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AuthController</servlet-name>
         <url-pattern>/AuthController</url-pattern>
@@ -15,6 +31,18 @@
     <servlet-mapping>
         <servlet-name>LogOut</servlet-name>
         <url-pattern>/LogOut</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Register</servlet-name>
+        <url-pattern>/usuarios/RegisterController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Show</servlet-name>
+        <url-pattern>/Show</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VistasController</servlet-name>
+        <url-pattern>/VistasController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

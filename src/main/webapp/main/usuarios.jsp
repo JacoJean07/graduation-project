@@ -10,7 +10,7 @@
 
 <div class="card">
     <div class="card-body">
-        <form action="" method="post" autocomplete="off" id="formulario">
+        <form action="../usuarios/RegisterController" method="post" autocomplete="off" id="formulario">
             <!-- alertas aqui -->
             <div class="row">
                 <div class="col-md-3">
@@ -59,22 +59,29 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-
-                <td>id user</td>
-                <td>nombre</td>
-                <td>correo</td>
-                <td>usuario</td>
-                <td>
-                    <a href="#" class="btn btn-warning"><i class='fas fa-key'></i></a>
-                    <a href="#" onclick="editarUsuario(/* aqui va el id del usuario */)" class="btn btn-success"><i class='fas fa-edit'></i></a>
-                    <form action="#" method="post">
-                        <button class="btn btn-danger" type="submit"><i class='fas fa-trash-alt'></i> </button>
-                    </form>
-                </td>
-            </tr>
+            <c:forEach var="user" items="${users}">
+                <tr>
+                    <td>${user['id']}</td>
+                    <td>${user['name']}</td>
+                    <td>${user['email']}</td>
+                    <td>${user['username']}</td>
+                    <td>
+                        <a href="#" class="btn btn-warning"><i class='fas fa-key'></i></a>
+                        <a href="#" onclick="editarUsuario()" class="btn btn-success"><i class='fas fa-edit'></i></a>
+                        <form action="#" method="post">
+                            <button class="btn btn-danger" type="submit"><i class='fas fa-trash-alt'></i> </button>
+                        </form>
+                    </td>
+                </tr>
+            </c:forEach>
         </tbody>
     </table>
+</div>
+
+<div class="pagination">
+    <c:forEach var="i" begin="1" end="${totalPages}">
+        <a href="ShowController?page=${i}&pageSize=10">${i}</a>
+    </c:forEach>
 </div>
 
 <jsp:include page="includes/footer.jsp" />

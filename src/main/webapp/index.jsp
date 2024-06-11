@@ -101,11 +101,11 @@
                             </c:if>
                             <div class="form-group">
                                 <label for="user" class="form-label text-white lead">Usuario:</label>
-                                <input type="text" name="user" class="form-control bg-secondary" id="user" placeholder="Ingrese su usuario" value="${requestScope.user}" required>
+                                <input type="text" name="user" class="form-control bg-opacity-25" id="user" placeholder="Ingrese su usuario" value="${requestScope.user}" required>
                             </div>
                             <div class="form-group">
                                 <label for="password" class="form-label text-white lead">Contraseña:</label>
-                                <input type="password" name="password" class="form-control bg-secondary" id="password" placeholder="Ingrese su contraseña" required>
+                                <input type="password" name="password" class="form-control bg-opacity-25" id="password" placeholder="Ingrese su contraseña" required>
                             </div>
                             <br>
                             <div class="form-group">
