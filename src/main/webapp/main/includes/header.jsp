@@ -44,38 +44,38 @@
           <div class="sidebar-wrapper">
             <form action="../VistasController" method="POST">
               <ul class="nav text-center flex-column d-flex flex-fill">
-                <li class="nav-item d-flex flex-fill">
-                  <input type="submit" name="vista" class="nav-link btn" value="usuarios">
+                <li class="nav-item d-flex flex-fill my-3">
+                  <input type="submit" name="vista" class="text-uppercase w-100 m2 nav-link bg-transparent" value="usuarios">
                   <i class="fas fa-user mr-2 fa-2x"></i>
                   </input>
                 </li>
-                <li class="nav-item d-flex flex-fill">
-                  <input type="submit" name="vista" class="nav-link btn" value="config">
+                <li class="nav-item d-flex flex-fill my-3">
+                  <input type="submit" name="vista" class="text-uppercase w-100 m2 nav-link bg-transparent" value="config">
                   <i class="fas fa-cogs mr-2 fa-2x"></i>
                   </input>
                 </li>
-                <li class="nav-item d-flex flex-fill">
-                  <input type="submit" name="vista" class="nav-link btn" value="categoria">
+                <li class="nav-item d-flex flex-fill my-3">
+                  <input type="submit" name="vista" class="text-uppercase w-100 m2 nav-link bg-transparent" value="categoria">
                   <i class=" fas fa-layer-group mr-2 fa-2x"></i>
                   </input>
                 </li>
-                <li class="nav-item d-flex flex-fill">
-                  <input type="submit" name="vista" class="nav-link btn" value="productos">
+                <li class="nav-item d-flex flex-fill my-3">
+                  <input type="submit" name="vista" class="text-uppercase w-100 m2 nav-link bg-transparent" value="productos">
                   <i class="fab fa-product-hunt mr-2 fa-2x"></i>
                   </input>
                 </li>
-                <li class="nav-item d-flex flex-fill">
-                  <input type="submit" name="vista" class="nav-link btn" value="clientes">
+                <li class="nav-item d-flex flex-fill my-3">
+                  <input type="submit" name="vista" class="text-uppercase w-100 m2 nav-link bg-transparent" value="clientes">
                   <i class=" fas fa-users mr-2 fa-2x"></i>
                   </input>
                 </li>
-                <li class="nav-item d-flex flex-fill">
-                  <input type="submit" name="vista" class="nav-link btn" value="ventas">
+                <li class="nav-item d-flex flex-fill my-3">
+                  <input type="submit" name="vista" class="text-uppercase w-100 m2 nav-link bg-transparent" value="ventas">
                   <i class="fas fa-cash-register mr-2 fa-2x"></i>
                   </input>
                 </li>
-                <li class="nav-item d-flex flex-fill">
-                  <input type="submit" name="vista" class="nav-link btn" value="lista_ventas">
+                <li class="nav-item d-flex flex-fill my-3">
+                  <input type="submit" name="vista" class="text-uppercase w-100 m2 nav-link bg-transparent" value="lista_ventas">
                   <i class="fas fa-cart-plus mr-2 fa-2x"></i>
                   </input>
                 </li>
