@@ -12,25 +12,28 @@
 <!-- realizar la vista de gastos -->
 <div class="card shadow-lg">
     <div class="card-body">
-        <form action="" method="post" autocomplete="off" id="formulario">
+        <form action="../GastosController" method="post" autocomplete="off" id="formulario">
             <!-- aqui van las alertas -->
             <div class="row">
                 <div class="col-md-3">
                     <div class="form-group">
                         <label for="detalle">detalle</label>
-                        <input type="text" class="form-control" placeholder="Ingrese detalle" name="detalle" id="detalle">
+                        <input type="text" class="form-control" placeholder="Ingrese detalle" name="detalle" id="detalle"
+                            value="${row != null ? row.detalle : ''}">
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="form-group">
                         <label for="monto">monto</label>
-                        <input type="number" class="form-control" placeholder="Ingrese monto" name="monto" id="monto">
+                        <input type="number" class="form-control" placeholder="Ingrese monto" name="monto" id="monto"
+                            value="${row != null ? row.monto : ''}">
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="form-group">
                         <label for="fecha">fecha</label>
-                        <input type="date" class="form-control" placeholder="Ingrese fecha" name="fecha" id="fecha">
+                        <input type="datetime" class="form-control" placeholder="Ingrese fecha" name="fecha" id="fecha"
+                            value="${row != null ? row.fecha : ''}">
                     </div>
                 </div>
             </div>
@@ -59,9 +62,11 @@
                     <td>${gasto['monto']}</td>
                     <td>${gasto['fecha']}</td>
                     <td style="width: 200px;">
-                        <a href="#" onclick="" class="btn btn-primary"><i class='fas fa-edit'></i></a>
-                        <form action="<!-- aqui va el id -->" method="post">
-                            <button class="btn btn-danger" type="submit"><i class='fas fa-trash-alt'></i> </button>
+                        <a href="../VistasController?vista=gastos&id=${gasto['id']}" onclick="" class="btn btn-primary"><i class='fas fa-edit'></i></a>
+                        <form action="../GastosController" method="post">
+                            <input type="hidden" name="id" value="${gasto['id']}">
+                            <input type="hidden" name="action" value="delete">
+                            <button class="btn btn-danger" type="submit" onclick="return confirm('¿Seguro que desea eliminar este gasto?');"><i class='fas fa-trash-alt'></i> </button>
                         </form>
                     </td>
                 </tr>

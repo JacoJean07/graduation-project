@@ -111,7 +111,7 @@ public class Producto {
                 stmt.setInt(6, existencia);                
                 stmt.setInt(7, id_categoria);
             } else {
-                stmt = connection.prepareCall("{CALL insert_producto(?, ?, ?, ?, ?, ?, ?)}");
+                stmt = connection.prepareCall("{CALL insert_producto(?, ?, ?, ?, ?, ?)}");
                 stmt.setString(1, codigo);
                 stmt.setString(2, descripcion);
                 stmt.setDouble(3, precioEntrada);

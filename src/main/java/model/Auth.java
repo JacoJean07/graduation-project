@@ -8,6 +8,7 @@ import connection.Conn;
 
 public class Auth {
 
+    private String id;
     private String user;
     private String password;
     private Conn conn;
@@ -16,6 +17,14 @@ public class Auth {
         this.user = user;
         this.password = password;
         this.conn = conn;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getUser() {
@@ -35,7 +44,7 @@ public class Auth {
     }
 
     public boolean checkPassword(String password, String user) {
-        String sql = "SELECT password FROM usuarios WHERE user = ?";
+        String sql = "SELECT id, password FROM usuarios WHERE user = ?";
         try {
             conn.connect();
             Connection connection = conn.getJdbcConnection();
@@ -44,7 +53,10 @@ public class Auth {
             try (ResultSet resultSet = statement.executeQuery()) {
                 if (resultSet.next()) {
                     String storedPassword = resultSet.getString("password");
-                    return storedPassword.equals(password);
+                    if (storedPassword.equals(password)) {
+                        this.id = resultSet.getString("id"); // Asigna el id del usuario
+                        return true;
+                    }
                 }
             }
             statement.close();

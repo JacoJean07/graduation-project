@@ -43,6 +43,9 @@ public class VistasController extends HttpServlet {
         session.setAttribute("data", data);
         session.setAttribute("data2", data2);
         session.setAttribute("row", row);
+        System.out.println(data);
+        System.out.println(data2);
+        System.out.println(row);
 
         response.sendRedirect(direccion);
     }
@@ -92,12 +95,16 @@ public class VistasController extends HttpServlet {
                 }
                 return CLIENTES;
             case "ventas":
+                Vistas.mostrarVentas();
                 return VENTAS;
             case "lista_ventas":
                 Vistas.mostrarListaVentas();
                 return LISTA_VENTAS;
             case "gastos":
                 Vistas.mostrarGastos();
+                if (id != null) {
+                    Vistas.mostrarGasto(Integer.parseInt(id));
+                }
                 return GASTOS;
             default:
                 return INDEX;

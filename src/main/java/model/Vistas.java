@@ -16,7 +16,6 @@ public class Vistas {
     private static ArrayList<Map<String, Object>> categorias = new ArrayList<>();
     private static ArrayList<Map<String, Object>> productos = new ArrayList<>();
     private static ArrayList<Map<String, Object>> clientes = new ArrayList<>();
-    private static ArrayList<Map<String, Object>> ventas = new ArrayList<>();
     private static ArrayList<Map<String, Object>> lista_ventas = new ArrayList<>();
     private static ArrayList<Map<String, Object>> gastos = new ArrayList<>();
     private static ArrayList<Map<String, Object>> data = new ArrayList<>();
@@ -228,6 +227,7 @@ public class Vistas {
     public static void mostrarProductos() {
         row.clear();
         data.clear();
+        data2.clear();
         productos.clear();
         try {
             conn.connect(); // Conecta a la base de datos
@@ -301,21 +301,35 @@ public class Vistas {
     }
 
     public static void mostrarVentas() {
+        row.clear();
         data.clear();
-        ventas.clear();
+        data2.clear();
+        clientes.clear();
         try {
             conn.connect(); // Conecta a la base de datos
             Connection connection = conn.getJdbcConnection();
-            CallableStatement stmt = connection.prepareCall("{CALL get_ventas}");
+            CallableStatement stmt = connection.prepareCall("{CALL get_clientes}");
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
-                Map<String, Object> venta = new HashMap<>();
-                venta.put("id", rs.getInt("id"));
-                venta.put("total", rs.getDouble("total"));
-                venta.put("fecha", rs.getString("fecha"));
-                venta.put("id_cliente", rs.getInt("id_cliente"));
-                venta.put("id_usuario", rs.getInt("id_usuario"));
-                ventas.add(venta);
+                Map<String, Object> cliente = new HashMap<>();
+                cliente.put("id", rs.getInt("id"));
+                cliente.put("nombre", rs.getString("nombre"));
+                cliente.put("telefono", rs.getString("telefono"));
+                cliente.put("direccion", rs.getString("direccion"));
+                clientes.add(cliente);
+            }
+            CallableStatement stmt2 = connection.prepareCall("{CALL get_productos}");
+            ResultSet rs2 = stmt2.executeQuery();
+            while (rs2.next()) {
+                Map<String, Object> producto = new HashMap<>();
+                producto.put("id", rs2.getInt("id"));
+                producto.put("codigo", rs2.getString("codigo"));
+                producto.put("descripcion", rs2.getString("descripcion"));
+                producto.put("existencia", rs2.getInt("existencia"));
+                producto.put("precioEntrada", rs2.getDouble("precioEntrada"));
+                producto.put("precioSalida", rs2.getDouble("precioSalida"));
+                producto.put("id_categoria", rs2.getInt("id_categoria"));
+                productos.add(producto);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -326,10 +340,12 @@ public class Vistas {
                 e.printStackTrace();
             }
         }
-        data.addAll(ventas);
+        data.addAll(clientes);
+        data2.addAll(productos);
     }
 
     public static void mostrarGastos() {
+        row.clear();
         data.clear();
         gastos.clear();
         try {
@@ -356,6 +372,37 @@ public class Vistas {
         }
         data.addAll(gastos);
     }
+
+    public static void mostrarGasto(int id) {
+        row.clear();
+        gastos.clear();
+
+        try {
+            conn.connect(); // Conecta a la base de datos
+            Connection connection = conn.getJdbcConnection();
+
+            CallableStatement stmt = connection.prepareCall("{CALL get_gasto(?)}");
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                Map<String, Object> gasto = new HashMap<>();
+                gasto.put("id", rs.getInt("id"));
+                gasto.put("detalle", rs.getString("detalle"));
+                gasto.put("monto", rs.getDouble("monto"));
+                gasto.put("fecha", rs.getString("fecha"));
+                row = gasto; // Añadir directamente al resultado esperado
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                conn.disconnect(); // Cierra la conexión
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }   
 
     public static void mostrarConfiguracion() {
         data.clear();

@@ -66,12 +66,27 @@
                                                         value="${row != null ? row.existencia : ''}">
                                                 </div>
                                             </div>
-                                             
+
                                             <div class="col-md-6">
-                                                <input type="submit" class="btn btn-info" id="btnAccion"
-                                                    value="${row != null ? 'Modificar' : 'Registrar'}">
-                                                <input type="button" value="Nuevo" onclick="limpiar()"
-                                                    class="btn btn-success" id="btnNuevo">
+                                                <div class="form-group">
+                                                    <label for="id_categoria"
+                                                        class=" text-dark font-weight-bold">Categoria</label>
+                                                    <select id="id_categoria" class="form-control" name="id_categoria"
+                                                        required>
+                                                        <option value="0">Seleccione una categoria</option>
+                                                        <c:forEach var="categoria" items="${sessionScope.data2}">
+                                                            <option value="${categoria['id']}">${categoria['detalle']}
+                                                            </option>
+                                                        </c:forEach>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <input type="submit" value="${row != null ? 'Modificar' : 'Registrar'}"
+                                                    class="btn btn-info" id="btnAccion">
+                                                <input type="button" value="Nuevo" class="btn btn-success" id="btnNuevo"
+                                                    onclick="limpiar()">
                                             </div>
                                         </div>
 
@@ -108,7 +123,7 @@
                                             <td>${producto['id_categoria']}</td>
 
                                             <td>
-                                                <a href="../VistasController?vista=producto&id=${producto['id']}"
+                                                <a href="../VistasController?vista=productos&id=${producto['id']}"
                                                     onclick="" class="btn btn-primary"><i class='fas fa-edit'></i></a>
                                                 <form action="../ProductoController" method="post">
                                                     <input type="hidden" name="id" id="id" value="${producto['id']}">

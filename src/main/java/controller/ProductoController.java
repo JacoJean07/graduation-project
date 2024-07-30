@@ -14,13 +14,19 @@ public class ProductoController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
         String id = request.getParameter("id");
         String codigo = request.getParameter("codigo");
-        String descripcion = request.getParameter("descripcion");
+        String descripcion = request.getParameter("producto");
         String precioEntrada = request.getParameter("precioEntrada");
         String precioSalida = request.getParameter("precioSalida");
         String existencia = request.getParameter("existencia");
-        String idCategoria = request.getParameter("idCategoria");
+        String id_categoria = request.getParameter("id_categoria");
         String action = request.getParameter("action");
 
         String jdbcURL = getServletContext().getInitParameter("jdbcURL");
@@ -49,7 +55,7 @@ public class ProductoController extends HttpServlet {
                     producto.setPrecioEntrada(Double.parseDouble(precioEntrada));
                     producto.setPrecioSalida(Double.parseDouble(precioSalida));
                     producto.setExistencia(Integer.parseInt(existencia));
-                    producto.setId_categoria(Integer.parseInt(idCategoria));
+                    producto.setId_categoria(Integer.parseInt(id_categoria));
                     producto.insertOrUpdateProducto();
                 } else {
                     // Crear un nuevo producto
@@ -58,7 +64,7 @@ public class ProductoController extends HttpServlet {
                     producto.setPrecioEntrada(Double.parseDouble(precioEntrada));
                     producto.setPrecioSalida(Double.parseDouble(precioSalida));
                     producto.setExistencia(Integer.parseInt(existencia));
-                    producto.setId_categoria(Integer.parseInt(idCategoria));
+                    producto.setId_categoria(Integer.parseInt(id_categoria));
                     producto.insertOrUpdateProducto();
                 }
             }
@@ -67,12 +73,6 @@ public class ProductoController extends HttpServlet {
         }
 
         response.sendRedirect("./VistasController?vista=productos");
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
     }
 
     @Override
