@@ -79,6 +79,11 @@
                   <i class="fas fa-cart-plus mr-2 fa-2x"></i>
                   </input>
                 </li>
+                <li class="nav-item d-flex flex-fill my-3">
+                  <input type="submit" name="vista" class="text-uppercase w-100 m2 nav-link bg-transparent" value="gastos">
+                  <i class="fas fa-cart-plus mr-2 fa-2x"></i>
+                  </input>
+                </li>
               </ul>
             </form>
           </div>

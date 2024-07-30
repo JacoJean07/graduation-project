@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <jsp:include page="includes/header.jsp" />
 
@@ -18,27 +19,32 @@
                 <thead class="thead-dark">
                     <tr>
                         <th>#</th>
-                        <th>Cliente</th>
                         <th>Total</th>
-                        <th>Utilidad</th>
                         <th>Fecha</th>
+                        <th>Cliente</th>
+                        <th>Vendedor</th>
                         <th></th>
-                        <th>!</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
+                    <c:forEach var="venta" items="${sessionScope.data}">
                         <tr>
-                            <td>1</td>
-                            <td>Jean</td>
-                            <td>10.00</td>
-                            <td>2.00</td>
-                            <td>17/05/2023</td>
-                            <td>
-                              <a target="_blank" class="btn btn-danger "  ><i class="fas fa-file-pdf"></i></a> <!-- generacion de pdf con una libreria-->
+                            <td>${venta['id']}</td>
+                            <td>${venta['total']}</td> 
+                            <td>${venta['fecha']}</td>
+                            <td>${venta['id_cliente']}</td>
+                            <td>${venta['id_usuario']}</td>
+                            <td style="width: 200px;">
+                                <a href="#" onclick="" class="btn btn-primary"><i class='fas fa-edit'></i></a>
                             </td>
-                            <!-- Botón principal -->
-                            <td><a href="" class="btn btn-warning" >Eliminar Venta</a></td>
+                            <td style="width: 200px;">
+                                <form action="<!-- aqui va el id -->" method="post">
+                                    <button class="btn btn-danger" type="submit"><i class='fas fa-trash-alt'></i> </button>
+                                </form>
+                            </td>
                         </tr>
+                    </c:forEach>
                 </tbody>
             </table>
         </div>

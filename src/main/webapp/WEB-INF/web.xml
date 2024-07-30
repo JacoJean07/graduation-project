@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="6.0" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd">
+    <context-param>
+        <param-name>jdbcURL</param-name>
+        <param-value>jdbc:mysql://localhost:3306/proyecto</param-value>
+    </context-param>
+    <context-param>
+        <param-name>jdbcUSER</param-name>
+        <param-value>root</param-value>
+    </context-param>
+    <context-param>
+        <param-name>jdbcPASS</param-name>
+        <param-value/>
+    </context-param>
     <servlet>
         <servlet-name>AuthController</servlet-name>
         <servlet-class>controller.AuthController</servlet-class>
@@ -9,20 +21,24 @@
         <servlet-class>controller.LogOut</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>Register</servlet-name>
-        <servlet-class>controller.usuarios.RegisterController</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>RegisterC</servlet-name>
-        <servlet-class>controller.RegisterC</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>Show</servlet-name>
-        <servlet-class>controller.usuarios.Show</servlet-class>
+        <servlet-name>UserController</servlet-name>
+        <servlet-class>controller.UserController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>VistasController</servlet-name>
         <servlet-class>controller.VistasController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CategoriaController</servlet-name>
+        <servlet-class>controller.CategoriaController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ClienteController</servlet-name>
+        <servlet-class>controller.ClienteController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProductoController</servlet-name>
+        <servlet-class>controller.ProductoController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>AuthController</servlet-name>
@@ -33,16 +49,24 @@
         <url-pattern>/LogOut</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>Register</servlet-name>
-        <url-pattern>/usuarios/RegisterController</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>Show</servlet-name>
-        <url-pattern>/Show</url-pattern>
+        <servlet-name>UserController</servlet-name>
+        <url-pattern>/UserController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>VistasController</servlet-name>
         <url-pattern>/VistasController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CategoriaController</servlet-name>
+        <url-pattern>/CategoriaController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ClienteController</servlet-name>
+        <url-pattern>/ClienteController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProductoController</servlet-name>
+        <url-pattern>/ProductoController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

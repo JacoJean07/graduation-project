@@ -1,10 +1,10 @@
-controller\usuarios\RegisterController.class
 connection\Conn.class
-model\Register.class
+controller\VistasController.class
+controller\UserController.class
 model\Auth.class
 com\mycompany\interfaces\resources\JakartaEE10Resource.class
-controller\usuarios\ShowController.class
-model\usuarios\Show.class
+model\Vistas.class
 com\mycompany\interfaces\JakartaRestConfiguration.class
 controller\AuthController.class
 controller\LogOut.class
+model\User.class

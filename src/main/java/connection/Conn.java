@@ -6,16 +6,48 @@ import java.sql.SQLException;
 
 public class Conn {
 
-    private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/proyecto";
-    private static final String DATABASE_USER = "root";
-    private static final String DATABASE_PASSWORD = "";
-
-    public static Connection getConnection() {
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            return DriverManager.getConnection(DATABASE_URL, DATABASE_USER, DATABASE_PASSWORD);
-        } catch (ClassNotFoundException | SQLException e) {
-            throw new RuntimeException("Error connecting to the database", e);
+    private String jdbcURL;
+    private String jdbcUSER;
+    private String jdbcPASS;
+    
+    private Connection jdbcConnection;
+    
+    public Conn(String jdbcURL, String jdbcUSER, String jdbcPASS){
+        this.jdbcURL = jdbcURL;
+        this.jdbcUSER = jdbcUSER;
+        this.jdbcPASS = jdbcPASS;
+    }
+    
+    public void connect() throws SQLException {
+        if (jdbcConnection == null || jdbcConnection.isClosed()) {
+            try {
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                System.out.println("Driver registrado exitosamente.");
+            } catch (ClassNotFoundException ex) {
+                System.out.println("Error al registrar el driver.");
+                ex.printStackTrace();
+                throw new SQLException(ex);
+            }
+            
+            try {
+                jdbcConnection = DriverManager.getConnection(jdbcURL, jdbcUSER, jdbcPASS);
+                System.out.println("Conexión a la base de datos establecida.");
+            } catch (SQLException ex) {
+                System.out.println("Error al establecer la conexión con la base de datos.");
+                ex.printStackTrace();
+                throw ex;
+            }
         }
+    }
+    
+    public void disconnect() throws SQLException {
+        if (jdbcConnection != null && !jdbcConnection.isClosed()) {
+            jdbcConnection.close();
+            System.out.println("Conexión cerrada.");
+        }
+    }
+    
+    public Connection getJdbcConnection() {
+        return jdbcConnection;
     }
 }
